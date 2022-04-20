@@ -22,7 +22,7 @@ class UserController extends Controller
         $users = User::all();
 
         if ($filter) {
-            $users = User::where('roles', '=', $filter)->get();
+            $users = User::where('roles', 'ILIKE', $filter)->get();
         }
         
         return view('users.index', ['data' => $users]);
